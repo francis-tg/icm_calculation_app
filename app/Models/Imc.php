@@ -8,10 +8,10 @@ class Imc extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['valeur', 'poids', 'taille', 'Userid'];
+    protected $fillable = ['valeur', 'poids', 'taille', 'user_id'];
 
     public function user()
     {
-        return $this->belongsTo(User::class, 'Userid');
+        return $this->belongsTo(User::class, 'user_id');
     }
 }

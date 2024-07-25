@@ -12,14 +12,16 @@ Route::group([
 ],function($router){
     Route::get('/login', [AuthController::class, 'index']);
     Route::post('/login', [AuthController::class, 'login']);
-    Route::post('/logout', [AuthController::class, 'logout']);
+    Route::get('/logout', [AuthController::class, 'logout']);
     Route::get('/register', [UserController::class, 'index']);
+    Route::post('/register', [UserController::class, 'store']);
 });
 Route::group([
     'middleware'=>'user',
     'prefix'=>'user'
 ],function($router){
-    Route::get('/calculate', [ImcController::class, 'store']);
+    Route::get('/', [ImcController::class, 'index']);
+    Route::post('/calculate', [ImcController::class, 'store']);
 });
 
 Route::group([

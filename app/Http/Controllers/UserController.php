@@ -31,12 +31,35 @@ class UserController extends Controller
 
     public function store(Request $request)
     {
-        $validate = $request->validate([
-
+        $validatedData = $request->validate([
+            'nom' => 'required|string',
+            'prenom' => 'required|string',
+            'contact' => 'required|string',
+            'date_naissance' => 'required|date',
+            'email' => 'required|string|email|unique:users,email', 
+            'password' => 'required|string|min:8', 
         ]);
-        $user = User::create($request->all());
-        return redirect('/auth/login');
+    
+        // Hash the password before saving
+        $validatedData['password'] = bcrypt($validatedData['password']);
+        $userRole = Role::where('nom', 'User')->first();
+        if (!$userRole) {
+            return redirect()->back()->withErrors([
+                'error' => 'Role "User" not found',
+            ]);
+        }
+        $validatedData['role_id'] = $userRole->id;
+        $user = User::create($validatedData);
+    
+        if ($user) {
+            return redirect('/auth/login')->with('success', 'User created successfully. Please log in.');
+        } else {
+            return redirect()->back()->withErrors([
+                'error' => 'Une erreur s\'est produite lors de la création de l\'utilisateur',
+            ]);
+        }
     }
+    
 
     public function show($id)
     {

@@ -32,21 +32,26 @@ class AuthController extends Controller
             $role = Role::find($user['role_id']);
             // Redirect based on user role
             if ($role->nom === 'Admin') {
+                $request->session()->regenerate();
                 return redirect()->intended('/admin'); // or any admin route
             } else {
+                $request->session()->regenerate();
                 return redirect()->intended('/user'); // or any user route
             }
         }
 
         return redirect()->back()->withErrors([
-            'email' => 'Email ou mot de passe incorrect.',
+            'error' => 'Email ou mot de passe incorrect.',
         ]);
     }
 
-    public function logout()
+    public function logout(Request $request)
     {
         Auth::logout();
-        return redirect('/login');
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+        return redirect('/auth/login');
     }
 
     /**

@@ -17,17 +17,17 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'nom', 'prenom', 'date_naissance', 'contact', 'email', 'password', 'Roleid'
+        'nom', 'prenom', 'date_naissance', 'contact', 'email', 'password', 'role_id'
     ];
 
     public function role()
     {
-        return $this->belongsTo(Role::class, 'Roleid');
+        return $this->belongsTo(Role::class, 'role_id');
     }
 
     public function imcs()
     {
-        return $this->hasMany(Imc::class, 'Userid');
+        return $this->hasMany(Imc::class, 'user_id');
     }
     /**
      * The attributes that should be hidden for serialization.

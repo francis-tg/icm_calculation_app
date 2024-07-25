@@ -45,7 +45,7 @@
 
         <div class="text-center mt-3">
             <p>
-                Vous n'avez pas encore de compte ? <a href="/register" class="text-teal-500">Créer un</a>
+                Vous n'avez pas encore de compte ? <a href="/auth/register" class="text-teal-500">Créer un</a>
             </p>
         </div>
     </div>

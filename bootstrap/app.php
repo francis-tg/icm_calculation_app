@@ -18,7 +18,7 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->validateCsrfTokens(
             except: ['/*']
         );
-        $middleware->appendToGroup('auth',[Authenticate::class]);
+        $middleware->appendToGroup('user',[Authenticate::class]);
         $middleware->appendToGroup('admin',[AdminMiddleware::class]);
     })
     ->withExceptions(function (Exceptions $exceptions) {

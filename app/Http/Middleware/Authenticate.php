@@ -23,17 +23,20 @@ class Authenticate
      */
     public function handle(Request $request, Closure $next)
     {
-        $user = auth()->user();
+        if (!auth()->check()) {
+            # code...
+            return redirect('/auth/login')->with('error', 'You do not login.');
+        }
         $user = auth()->user();
         if (!$user) {
             # code...
-            return redirect('/login')->with('error', 'Veuillez-vous connecter.');
+            return redirect('/auth/login')->with('error', 'Veuillez-vous connecter.');
         }
         $role = Role::find($user['role_id']);
-        if (auth()->check() && $role->nom === 'User') {
+        if ($role->nom === 'User') {
             return $next($request);
         }
 
-        return redirect('/login')->with('error', 'You do not login.');
+        return redirect('/auth/login')->with('error', 'You do not login.');
     }
 }

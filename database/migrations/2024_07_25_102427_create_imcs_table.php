@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('imcs', function (Blueprint $table) {
             $table->id();
             $table->float('valeur');
-            $table->integer('poids');
-            $table->integer('taille');
+            $table->float('poids');
+            $table->float('taille');
             $table->foreignId("user_id")->constrained("users")->onDelete("CASCADE");
             $table->timestamps();
         });
