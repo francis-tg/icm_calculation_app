@@ -31,8 +31,11 @@ class UserController extends Controller
 
     public function store(Request $request)
     {
+        $validate = $request->validate([
+
+        ]);
         $user = User::create($request->all());
-        return response()->json($user, 201);
+        return redirect('/auth/login');
     }
 
     public function show($id)

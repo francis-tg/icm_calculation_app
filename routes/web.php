@@ -15,6 +15,12 @@ Route::group([
     Route::post('/logout', [AuthController::class, 'logout']);
     Route::get('/register', [UserController::class, 'index']);
 });
+Route::group([
+    'middleware'=>'user',
+    'prefix'=>'user'
+],function($router){
+    Route::get('/calculate', [ImcController::class, 'store']);
+});
 
 Route::group([
     'middleware'=>'admin',
