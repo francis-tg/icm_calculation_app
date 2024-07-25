@@ -1,7 +1,22 @@
 # ICM APP BY ALAPHIA Francis 
 
+ Admin login
+
+ - Username : admin@ciscodev.tg
+ - password: password
+
 ## Requirements (PHP 8.3 and Nodejs >=18)
 
+### Env
+ ````env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=imc_backend
+DB_USERNAME=root
+DB_PASSWORD=
+
+ ````
 ### Installation
 
 ````bash
