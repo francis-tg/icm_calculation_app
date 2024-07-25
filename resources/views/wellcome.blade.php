@@ -19,24 +19,27 @@
             IMC Test
         </h1>
         <div>
-            @auth
-                @if (Auth::user()->is_admin) <!-- Assuming you have an 'is_admin' attribute or method -->
-                    <a href="/admin" class="btn btn-outline-primary">Administration</a>
+            @if (Auth::user())
+                @auth
+                    @if (Auth::user()->role->nom === 'Admin')
+                        <!-- Assuming you have an 'is_admin' attribute or method -->
+                        <a href="/admin" class="btn btn-outline-primary">Administration</a>
+                    @else
+                        <a href="/user" class="btn btn-outline-primary">Votre Espace de test</a>
+                    @endif
+                    <a href="/auth/logout" class="btn btn-danger">Déconnexion</a>
                 @else
-                    <a href="/user" class="btn btn-outline-primary">Votre Espace de test</a>
-                @endif
-                <a href="/auth/logout" class="btn btn-danger">Déconnexion</a>
+                    <a href="/auth/login" class="btn btn-outline-primary">Connectez-vous</a>
+                @endauth
             @else
                 <a href="/auth/login" class="btn btn-outline-primary">Connectez-vous</a>
-            @endauth
+            @endif
         </div>
     </nav>
     <main>
         <div class="hero bg-base-200 min-h-screen flex items-center">
             <div class="hero-content flex-col lg:flex-row-reverse max-w-6xl mx-auto p-4">
-                <img
-                    src='{{asset('/img/medical.svg')}}'
-                    class=" w-1/2 rounded-lg " />
+                <img src='{{ asset('/img/medical.svg') }}' class=" w-1/2 rounded-lg " />
                 <div class="text-center lg:text-left lg:ml-8">
                     <h1 class="text-5xl font-bold mb-4">
                         Connaitre son Indice de Masse Corporelle
@@ -44,11 +47,13 @@
                     <p class="py-6 text-lg">
                         Il est important de connaitre sa masse corporelle afin de se protéger contre certaines maladies.
                     </p>
-                    @if (Auth::user()->is_admin) <!-- Assuming you have an 'is_admin' attribute or method -->
-                 
-                @else
-                    <a href="/user" class="btn bg-teal-500 hover:bg-teal-500 text-white">Je fais mon test</a>
-                @endif
+                    @if (Auth::user())
+                        @if (Auth::user()->role->nom === 'Admin')
+                            <!-- Assuming you have an 'is_admin' attribute or method -->
+                        @else
+                            <a href="/user" class="btn bg-teal-500 hover:bg-teal-500 text-white">Je fais mon test</a>
+                        @endif
+                    @endif
                 </div>
             </div>
         </div>
