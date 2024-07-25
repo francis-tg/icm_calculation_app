@@ -34,7 +34,7 @@
     </nav>
     <main>
         <div class="flex items-center justify-center">
-            <div class="w-3/4 py-8">
+            <div class="md:w-3/4 w-full py-8">
                 <h1 class="text-center text-2xl font-bold uppercase">
                     Indice de Masse Corporel
                 </h1>
