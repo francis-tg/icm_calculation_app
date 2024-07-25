@@ -38,15 +38,14 @@
                 <h1 class="text-center text-2xl font-bold uppercase">
                     Indice de Masse Corporel
                 </h1>
-                @if ($errors->any())
-                    <div>
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
+                <!-- Display Validation Errors -->
+            @if($errors->any())
+            <div class="mb-4 text-red-500">
+                @foreach($errors->all() as $error)
+                    <p class="p-2 mb- bg-red-300 rounded text-black">{{ $error }}</p>
+                @endforeach
+            </div>
+        @endif
                 <div role="tablist" class="tabs tabs-lifted">
                     <input type="radio" name="my_tabs_2" checked="checked" role="tab" class="tab"
                         aria-label="Calculer votre indice" />

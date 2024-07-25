@@ -11,7 +11,7 @@
             @if($errors->any())
                 <div class="mb-4 text-red-500">
                     @foreach($errors->all() as $error)
-                        <p>{{ $error }}</p>
+                    <p class="p-2 mb- bg-red-300 rounded text-black">{{ $error }}</p>
                     @endforeach
                 </div>
             @endif
