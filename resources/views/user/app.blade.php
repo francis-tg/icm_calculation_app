@@ -74,7 +74,7 @@
                     </div>
 
                     <input type="radio" name="my_tabs_2" role="tab" class="tab"
-                        aria-label="Vos récents diagnostics" />
+                        aria-label="Historique de test" />
                     <div role="tabpanel" class="tab-content bg-base-100 border-base-300 rounded-box p-6">
                         <div class="overflow-x-auto">
                             <table id="imcTable" class="table w-full">

@@ -18,12 +18,16 @@ Route::group([
 });
 Route::group([
     'middleware'=>'user',
+    'prefix'=>'user'
 ],function($router){
 
     Route::get('/', [ImcController::class, 'index']);
-    Route::post('/user/calculate', [ImcController::class, 'store']);
+    Route::post('/calculate', [ImcController::class, 'store']);
 });
 
+Route::get('/',function(){
+    return view('wellcome');
+});
 Route::group([
     'middleware'=>'admin',
     'prefix'=>'admin'
