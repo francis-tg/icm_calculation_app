@@ -24,14 +24,12 @@
             <nav>
                 <ul>
                     <li class="p-4 hover:bg-teal-100 hover:text-teal-700 cursor-pointer ">
-                        <a href="{{ route('roles.index') }}">Tableau de bord</a>
+                        <a href="{{ url('/admin') }}">Tableau de bord</a>
                     </li>
                     <li class="p-4  hover:bg-teal-100 hover:text-teal-700 cursor-pointer ">
-                        <a href="">Utilisateurs</a>
+                        <a href="{{url('/admin/imcs')}}">Tests IMC </a>
                     </li>
-                    <li class="p-4 hover:bg-teal-100 hover:text-teal-700 cursor-pointer">
-                        <a href="{{ route('imcs.index') }}">IMC</a>
-                    </li>
+                   
 
                 </ul>
             </nav>
@@ -39,7 +37,7 @@
 
         <!-- Main Content -->
         <main class="flex-1">
-            <nav class="w-full bg-teal-200 p-4">
+            <nav class="w-full bg-teal-100 p-4">
                 <div class="flex items-center justify-between">
                     <div class=" flex items-center">
                         <button id="menu-button" class="md:hidden text-teal-800 focus:outline-none">

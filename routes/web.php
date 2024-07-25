@@ -18,18 +18,16 @@ Route::group([
 });
 Route::group([
     'middleware'=>'user',
-    'prefix'=>'user'
 ],function($router){
+
     Route::get('/', [ImcController::class, 'index']);
-    Route::post('/calculate', [ImcController::class, 'store']);
+    Route::post('/user/calculate', [ImcController::class, 'store']);
 });
 
 Route::group([
     'middleware'=>'admin',
     'prefix'=>'admin'
 ],function ($router) {
-    Route::resource('roles', RoleController::class);
-    Route::resource('imcs', ImcController::class);
+    Route::get('/imcs', [ImcController::class,'getAllImcs']);
     Route::get('/', [UserController::class,'admin']);
-
 });

@@ -10,7 +10,7 @@ class Imc extends Model
 
     protected $fillable = ['valeur', 'poids', 'taille', 'user_id'];
 
-    public function user()
+    public function users()
     {
         return $this->belongsTo(User::class, 'user_id');
     }

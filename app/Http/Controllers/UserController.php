@@ -11,8 +11,8 @@ class UserController extends Controller
 {
     public function index()
     {
-        $roles = Role::all();
-        return view('auth.register', $roles);
+        
+        return view('auth.register');
     }
     public function admin()
     {

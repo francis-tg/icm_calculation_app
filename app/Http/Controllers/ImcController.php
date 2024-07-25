@@ -9,10 +9,14 @@ class ImcController extends Controller
 {
     public function index()
     {
-        $imcs = Imc::with('user')->get();
+        $imcs = Imc::with('users')->where('user_id',auth('web')->id())->get();
         return view('user.app',[
             'imcs'=>$imcs
         ]);
+    }
+    public function getAllImcs(){
+        $imcs = Imc::with('users')->get();
+        return view('imcs',['imcs'=>$imcs]);
     }
 
     public function store(Request $request)
