@@ -30,7 +30,7 @@
                             class="border-b-2 indent-7 w-full p-2 outline-none" />
                     </div>
                     <div class="relative mb-8">
-                        <i class="fas fa-envelope absolute text-gray-500 left-2 bottom-2 text-xl"></i>
+                        <i class="fas fa-calendar absolute text-gray-500 left-2 bottom-2 text-xl"></i>
                         <input type="date" name="date_naissance" class="border-b-2 indent-7 w-full p-2 outline-none" />
                     </div>
                     <div class="relative mb-8">
