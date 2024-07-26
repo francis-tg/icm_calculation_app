@@ -52,7 +52,7 @@
             row.innerHTML = `
                 <td>${imc.users.nom}</td>
                 <td>${imc.users.prenom}</td>
-                <td>${imc.valeur.toFixed(2)}</td>
+                <td>${imc.valeur.toFixed(2)} ${imc.valeur.toFixed(2) > 25? '<span class="badge badge-secondary badge-outline">Surpoids</span>':'<span class="badge badge-accent badge-outline">Normal</span>'}</td>
                 <td>${new Date(imc.created_at).toLocaleDateString()}</td>
             `;
             tableBody.appendChild(row);

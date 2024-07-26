@@ -14,7 +14,7 @@
 </head>
 
 <body class="bg-gray-100">
-    <nav class="bg-teal-100 p-4 flex justify-between items-center shadow-md">
+    <nav class="bg-teal-100 p-4 z-50 flex justify-between items-center shadow-md">
         <h1 class="text-xl font-bold font-serif">
             IMC Test
         </h1>
@@ -23,16 +23,16 @@
                 @auth
                     @if (Auth::user()->role->nom === 'Admin')
                         <!-- Assuming you have an 'is_admin' attribute or method -->
-                        <a href="/admin" class="btn btn-outline-primary">Administration</a>
+                        <a href="/admin" class="btn btn-sm btn-outline-primary">Administration</a>
                     @else
-                        <a href="/user" class="btn btn-outline-primary">Votre Espace de test</a>
+                        <a href="/user" class="btn btn-sm btn-outline-primary">Votre Espace de test</a>
                     @endif
-                    <a href="/auth/logout" class="btn btn-danger">Déconnexion</a>
+                    <a href="/auth/logout" class="btn btn-sm btn-danger">Déconnexion</a>
                 @else
-                    <a href="/auth/login" class="btn btn-outline-primary">Connectez-vous</a>
+                    <a href="/auth/login" class="btn btn-sm btn-outline-primary">Connectez-vous</a>
                 @endauth
             @else
-                <a href="/auth/login" class="btn btn-outline-primary">Connectez-vous</a>
+                <a href="/auth/login" class="btn btn-sm btn-outline-primary">Connectez-vous</a>
             @endif
         </div>
     </nav>
@@ -58,6 +58,23 @@
             </div>
         </div>
     </main>
+    <footer class="footer footer-center bg-base-300 text-base-content p-4">
+        <aside>
+          <p>Copyright © {new Date().getFullYear()} - All right reserved by CISCO DEV</p>
+        </aside>
+      </footer>
 </body>
+
+<script>
+    const handleScroll = () => {
+      if (window.pageYOffset > 50) {
+        document.querySelector("nav").classList.add("fixed", "w-full", "shadow-lg");
+      } else {
+        document.querySelector("nav").classList.remove("fixed", "w-full",);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+</script>
 
 </html>

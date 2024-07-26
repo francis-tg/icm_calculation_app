@@ -55,7 +55,10 @@
                     <li>
                         <div class="avatar placeholder">
                             <div class="bg-neutral text-neutral-content w-8 rounded-full">
-                                <span class="text-xs">UI</span>
+                                <span class="text-xs">
+                                    {{ substr(Auth::user()->nom,0,1) }} 
+                                    {{ substr(Auth::user()->prenom,0,1) }} 
+                                </span>
                             </div>
                         </div>
                     </li>

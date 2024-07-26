@@ -27,6 +27,9 @@
                 {{ $imc->valeur }}
                 @if ($imc->valeur > 25)
                     <span class="text-red-500 font-bold"> (Surpoids)</span>
+             
+                  @else
+                  <span class="text-green-500 font-bold"> (Normal)</span>
                 @endif
             </p>
         </div>
